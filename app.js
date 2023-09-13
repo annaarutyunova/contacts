@@ -4,6 +4,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.send('Anna Arutyunova');
 });
+router.get('/profile', (req, res) => {
+    res.send('My profile');
+});
 
 app.use('/', router);
 
