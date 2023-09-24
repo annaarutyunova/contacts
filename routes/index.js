@@ -1,8 +1,8 @@
 const routes = require('express').Router();
-const lesson1Controller = require('../controllers/lesson1');
+const baseController = require('../controllers/baseController');
 
-routes.get('/', lesson1Controller.homeRoute);
-routes.get('/profile', lesson1Controller.profileRoute);
-routes.get('/login', lesson1Controller.loginRoute);
+routes.get('/', baseController.homeRoute);
+routes.get('/profile', baseController.profileRoute);
+routes.get('/login', baseController.loginRoute);
 
 module.exports = routes;
