@@ -61,4 +61,3 @@ async function findById(){
 
 module.exports = {listDatabases, listContacts, findById};
 
-// "mongodb+srv://annaarutyunova8848:RdwrSBHCkFbJuzDL@cluster0.kqdz0mj.mongodb.net/"
