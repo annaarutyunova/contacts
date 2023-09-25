@@ -1,14 +1,14 @@
 const utilities = require('../mongodb');
 
-const homeRoute = async (req, res) => {
+const databases = async (req, res) => {
     console.log(await utilities.listDatabases())
     res.send(await utilities.listDatabases())
     ;
 };
-const profileRoute = async (req, res) => {
+const contacts = async (req, res) => {
     res.send(await utilities.listContacts());
 };
-const loginRoute = async (req, res) => {
+const byid = async (req, res) => {
     res.send(await utilities.findById());
 };
-module.exports = { homeRoute, profileRoute, loginRoute };
+module.exports = { databases, contacts, byid };
