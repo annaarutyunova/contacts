@@ -9,6 +9,6 @@ const contacts = async (req, res) => {
     res.send(await utilities.listContacts());
 };
 const byid = async (req, res) => {
-    res.send(await utilities.findById());
+    res.send(await utilities.findById(req));
 };
 module.exports = { databases, contacts, byid };

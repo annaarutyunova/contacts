@@ -29,7 +29,7 @@ async function listContacts(){
         await client.connect();
         let contacts = []
         contactsList = await client.db('contacts').collection('contacts').find({}).toArray();
-        console.log(contactsList);
+        // console.log(contactsList);
         contactsList.forEach(contact => contacts.push(contact))
         return contacts
 
@@ -41,10 +41,11 @@ async function listContacts(){
     
 }
 
-async function findById(){
+async function findById(req, res){
     const uri = process.env.MONGODB_URI
     const client = new MongoClient(uri);
-    const idToFind = '650f91fcd7a6ddb77b1ade53'
+    const idToFind = req.params.ObjectId
+    // '650f91fcd7a6ddb77b1ade53'
     try {
         // Connect to the MongoDB cluster
         await client.connect();

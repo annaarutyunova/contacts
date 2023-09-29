@@ -3,6 +3,6 @@ const contactController = require('../controllers/contactController');
 
 routes.get('/', contactController.contacts);
 routes.get('/databases', contactController.databases);
-routes.get('/byid', contactController.byid);
+routes.get('/:ObjectId', contactController.byid);
 
 module.exports = routes;
