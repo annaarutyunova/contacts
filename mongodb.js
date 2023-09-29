@@ -59,6 +59,73 @@ async function findById(req, res){
     }
 }
 
+async function addContact(req, res){
+    const uri = process.env.MONGODB_URI
+    const client = new MongoClient(uri);
+    // const idToFind = req.params.ObjectId
+    // '650f91fcd7a6ddb77b1ade53'
+    try {
+        // Connect to the MongoDB cluster
+        await client.connect();
+        const newContactData = {
+            firstName:"Dude",
+            lastName:"Dude",
+            email:"ded12345@byui.edu",
+            favoriteColor:"red",
+            birthday:{"$date":{"$numberLong":"851904000000"}}};
 
-module.exports = {listDatabases, listContacts, findById};
+        document = await client.db('contacts').collection('contacts').insertOne(
+            newContactData);
+            res.status(201).json({_id:document.insertedId})
+        // return document
+
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+async function updateContact(req, res){
+    const uri = process.env.MONGODB_URI
+    const client = new MongoClient(uri);
+    // const idToFind = req.params.ObjectId
+    // '650f91fcd7a6ddb77b1ade53'
+    try {
+        // Connect to the MongoDB cluster
+        await client.connect();
+        document = await client.db('contacts').collection('contacts').updateOne({"_id" : new ObjectId('650f91fcd7a6ddb77b1ade53')},
+        { $set: { favoriteColor: "green" } });
+        res.status(204)
+
+        return document
+
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+async function deleteContact(req, res){
+    const uri = process.env.MONGODB_URI
+    const client = new MongoClient(uri);
+    // const idToFind = req.params.ObjectId
+    // '650f91fcd7a6ddb77b1ade53'
+    try {
+        // Connect to the MongoDB cluster
+        await client.connect();
+        document = await client.db('contacts').collection('contacts').deleteOne({"_id" : new ObjectId('65175aaab8144bfe40c991ec')});
+        res.status(200)
+        return document
+
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+
+module.exports = {listDatabases, listContacts, findById, addContact, updateContact, deleteContact};
 

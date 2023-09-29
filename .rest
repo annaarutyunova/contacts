@@ -1,0 +1,16 @@
+# localhost
+GET http://localhost:3000 HTTP/1.1
+###
+POST http://localhost:3000 HTTP/1.1
+###
+PUT http://localhost:3000/update HTTP/1.1
+###
+DELETE http://localhost:3000/delete HTTP/1.1
+###
+GET http://localhost:3000/650f91fcd7a6ddb77b1ade53 HTTP/1.1
+
+### render
+GET https://name-cse341.onrender.com/ HTTP/1.1
+
+###
+GET https://name-cse341.onrender.com/650f91fcd7a6ddb77b1ade53 HTTP/1.1

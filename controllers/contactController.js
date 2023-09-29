@@ -9,6 +9,21 @@ const contacts = async (req, res) => {
     res.send(await utilities.listContacts());
 };
 const byid = async (req, res) => {
-    res.send(await utilities.findById(req));
+    res.send(await utilities.findById(req, res));
 };
-module.exports = { databases, contacts, byid };
+
+const addContact = async (req, res) => {
+    res.send(await utilities.addContact(req,res))
+
+}
+
+const updateContact = async (req, res) => {
+    res.send(await utilities.updateContact(req, res))
+}
+
+const deleteContact = async (req, res) => {
+    res.send(await utilities.deleteContact(req,res))
+}
+
+
+module.exports = { databases, contacts, byid, addContact, updateContact, deleteContact };
