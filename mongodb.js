@@ -95,7 +95,7 @@ async function updateContact(req, res){
         // Connect to the MongoDB cluster
         await client.connect();
         document = await client.db('contacts').collection('contacts').updateOne({"_id" : new ObjectId('650f91fcd7a6ddb77b1ade53')},
-        { $set: { favoriteColor: "green" } });
+        { $set: { favoriteColor: "white" } });
         res.status(204)
 
         return document
@@ -110,12 +110,20 @@ async function updateContact(req, res){
 async function deleteContact(req, res){
     const uri = process.env.MONGODB_URI
     const client = new MongoClient(uri);
-    // const idToFind = req.params.ObjectId
-    // '650f91fcd7a6ddb77b1ade53'
+    const id = new ObjectId('6517530a6885d712775187c7')
+    // 65183fdc66f4c36c9c04f688
+    // 65175a99b8144bfe40c991eb
+    // 65175a610c795d533186fa5d
+    // 65175a296f3340beede21dce
+    // 65175a06ba52df3765a866d3
+    // 6517594cce51e11784f13b18
+    // 6517530a6885d712775187c7
+    // 651752e26885d712775187c6
+    // 6517528c41585e1c6ac0b25c
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-        document = await client.db('contacts').collection('contacts').deleteOne({"_id" : new ObjectId('65175aaab8144bfe40c991ec')});
+        document = await client.db('contacts').collection('contacts').deleteOne({"_id" : id});
         res.status(200)
         return document
 

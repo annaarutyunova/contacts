@@ -1,16 +1,32 @@
 # localhost
 GET http://localhost:3000 HTTP/1.1
 ###
-POST http://localhost:3000 HTTP/1.1
+GET http://localhost:3000/650f91fcd7a6ddb77b1ade53 HTTP/1.1
+###
+POST http://localhost:3000/add HTTP/1.1
 ###
 PUT http://localhost:3000/update HTTP/1.1
 ###
 DELETE http://localhost:3000/delete HTTP/1.1
-###
-GET http://localhost:3000/650f91fcd7a6ddb77b1ade53 HTTP/1.1
+
 
 ### render
 GET https://name-cse341.onrender.com/ HTTP/1.1
-
 ###
 GET https://name-cse341.onrender.com/650f91fcd7a6ddb77b1ade53 HTTP/1.1
+### 
+PUT https://name-cse341.onrender.com/update HTTP/1.1
+###
+POST https://name-cse341.onrender.com/add HTTP/1.1
+###
+DELETE https://name-cse341.onrender.com/delete HTTP/1.1
+
+#65183fdc66f4c36c9c04f688
+#65175a99b8144bfe40c991eb
+#65175a610c795d533186fa5d
+#65175a296f3340beede21dce
+#65175a06ba52df3765a866d3
+#6517594cce51e11784f13b18
+#6517530a6885d712775187c7
+#651752e26885d712775187c6
+#6517528c41585e1c6ac0b25c
