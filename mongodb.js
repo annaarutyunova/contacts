@@ -44,7 +44,7 @@ async function listContacts(){
 async function findById(req, res){
     const uri = process.env.MONGODB_URI
     const client = new MongoClient(uri);
-    const idToFind = req.params.ObjectId
+    const idToFind = req.params.id
     // '650f91fcd7a6ddb77b1ade53'
     try {
         // Connect to the MongoDB cluster
@@ -62,21 +62,21 @@ async function findById(req, res){
 async function addContact(req, res){
     const uri = process.env.MONGODB_URI
     const client = new MongoClient(uri);
-    // const idToFind = req.params.ObjectId
-    // '650f91fcd7a6ddb77b1ade53'
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-        const newContactData = {
-            firstName:"Dude",
-            lastName:"Dude",
-            email:"ded12345@byui.edu",
-            favoriteColor:"red",
-            birthday:{"$date":{"$numberLong":"851904000000"}}};
+        const body = {
+            firstName:req.body.firstName,
+            lastName:req.body.lastName,
+            email:req.body.email,
+            favoriteColor:req.body.favoriteColor,
+            birthday:req.body.birthday
+        };
 
         document = await client.db('contacts').collection('contacts').insertOne(
-            newContactData);
-            res.status(201).json({_id:document.insertedId})
+            body);
+            res.status(201)
+            .json({document})
         // return document
 
     } catch (e) {
@@ -89,13 +89,18 @@ async function addContact(req, res){
 async function updateContact(req, res){
     const uri = process.env.MONGODB_URI
     const client = new MongoClient(uri);
-    // const idToFind = req.params.ObjectId
-    // '650f91fcd7a6ddb77b1ade53'
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-        document = await client.db('contacts').collection('contacts').updateOne({"_id" : new ObjectId('650f91fcd7a6ddb77b1ade53')},
-        { $set: { favoriteColor: "white" } });
+        const id = new ObjectId(req.params.id)
+        const body = {
+            firstName:req.body.firstName,
+            lastName:req.body.lastName,
+            email:req.body.email,
+            favoriteColor:req.body.favoriteColor,
+            birthday:req.body.birthday
+        };
+        document = await client.db('contacts').collection('contacts').updateOne({"_id" : id}, body );
         res.status(204)
 
         return document
@@ -110,16 +115,7 @@ async function updateContact(req, res){
 async function deleteContact(req, res){
     const uri = process.env.MONGODB_URI
     const client = new MongoClient(uri);
-    const id = new ObjectId('6517530a6885d712775187c7')
-    // 65183fdc66f4c36c9c04f688
-    // 65175a99b8144bfe40c991eb
-    // 65175a610c795d533186fa5d
-    // 65175a296f3340beede21dce
-    // 65175a06ba52df3765a866d3
-    // 6517594cce51e11784f13b18
-    // 6517530a6885d712775187c7
-    // 651752e26885d712775187c6
-    // 6517528c41585e1c6ac0b25c
+    const id = new ObjectId(req.params.id)
     try {
         // Connect to the MongoDB cluster
         await client.connect();

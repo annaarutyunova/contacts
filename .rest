@@ -4,8 +4,28 @@ GET http://localhost:3000 HTTP/1.1
 GET http://localhost:3000/650f91fcd7a6ddb77b1ade53 HTTP/1.1
 ###
 POST http://localhost:3000/add HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Dude",
+  "lastName": "Dude",
+  "email": "ded12345@byui.edu",
+  "favoriteColor": "red",
+  "birthday":"1998-03-30"
+}
+
 ###
-PUT http://localhost:3000/update HTTP/1.1
+PUT http://localhost:3000/650f8ffc9911333d062380ed HTTP/1.1
+Content-Type: application/json
+
+{
+            "firstName":"John",
+            "lastName":"Sterling",
+            "email":"ste12345@byui.edu",
+            "favoriteColor":"red",
+            "birthday":"2012-02-12"
+};
+
 ###
 DELETE http://localhost:3000/delete HTTP/1.1
 
