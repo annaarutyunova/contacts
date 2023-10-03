@@ -93,6 +93,7 @@ async function updateContact(req, res){
         // Connect to the MongoDB cluster
         await client.connect();
         const id = new ObjectId(req.params.id)
+        console.log("id", id)
         const body = {
             firstName:req.body.firstName,
             lastName:req.body.lastName,
