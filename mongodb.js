@@ -101,7 +101,7 @@ async function updateContact(req, res){
             favoriteColor:req.body.favoriteColor,
             birthday:req.body.birthday
         };
-        document = await client.db('contacts').collection('contacts').updateOne({"_id" : id}, body );
+        document = await client.db('contacts').collection('contacts').updateOne({"_id" : id}, {$set: body} );
         res.status(204)
 
         return document

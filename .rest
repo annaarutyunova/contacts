@@ -24,7 +24,7 @@ Content-Type: application/json
   "email":"ste12345@byui.edu",
   "favoriteColor":"red",
   "birthday":"2012-02-12"
-};
+}
 
 ###
 DELETE http://localhost:3000/651c81918813ee37dec22feb HTTP/1.1
@@ -36,7 +36,7 @@ Content-Type: application/json
   "email":"ste12345@byui.edu",
   "favoriteColor":"red",
   "birthday":"2012-02-12"
-};
+}
 
 ### render
 GET https://name-cse341.onrender.com/ HTTP/1.1
