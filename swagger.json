@@ -51,7 +51,7 @@
         ],
         "responses": {
           "201": {
-            "description": "OK"
+            "description": "Created"
           }
         }
       }
