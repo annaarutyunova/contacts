@@ -15,6 +15,7 @@ async function listDatabases(){
         databasesList.databases.forEach(db => database_names.push(` - ${db.name}`));
         return database_names  
     } catch (e) {
+        res.status(500).json({message: e.message})
         console.error(e);
     } finally {
         await client.close();
@@ -34,6 +35,7 @@ async function listContacts(){
         return contacts
 
     } catch (e) {
+        res.status(500).json({message: e.message})
         console.error(e);
     } finally {
         await client.close();
@@ -53,6 +55,7 @@ async function findById(req, res){
         return document
 
     } catch (e) {
+        res.status(500).json({message: e.message})
         console.error(e);
     } finally {
         await client.close();
@@ -80,6 +83,7 @@ async function addContact(req, res){
         // return document
 
     } catch (e) {
+        res.status(500).json({message: e.message})
         console.error(e);
     } finally {
         await client.close();
@@ -107,6 +111,7 @@ async function updateContact(req, res){
         return document
 
     } catch (e) {
+        res.status(500).json({message: e.message})
         console.error(e);
     } finally {
         await client.close();
@@ -125,6 +130,7 @@ async function deleteContact(req, res){
         return document
 
     } catch (e) {
+        res.status(500).json({message: e.message})
         console.error(e);
     } finally {
         await client.close();
